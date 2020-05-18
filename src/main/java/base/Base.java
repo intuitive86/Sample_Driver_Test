@@ -1,12 +1,13 @@
-package resources;
+package base;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.Properties;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
 
 public class Base {
 
@@ -16,8 +17,7 @@ public class Base {
   public WebDriver initializeDriver() throws IOException {
     // Create global property file
     prop = new Properties();
-    FileInputStream fis = new FileInputStream(System.getProperty("user.dir") +
-        "src/main/java/resources/data.properties");
+    InputStream fis = getClass().getClassLoader().getResourceAsStream("data.properties");
     prop.load(fis);
     String browserName = prop.getProperty("browser");
     System.out.println(browserName);
@@ -29,6 +29,6 @@ public class Base {
       WebDriverManager.firefoxdriver().setup();
       driver = new FirefoxDriver();
     }
-    return driver();
+    return driver;
   }
 }

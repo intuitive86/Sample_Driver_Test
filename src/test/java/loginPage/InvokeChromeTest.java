@@ -1,8 +1,9 @@
 package loginPage;
 
-import java.io.IOException;
+import base.Base;
 import org.testng.annotations.Test;
-import resources.Base;
+
+import java.io.IOException;
 
 public class InvokeChromeTest extends Base {
 

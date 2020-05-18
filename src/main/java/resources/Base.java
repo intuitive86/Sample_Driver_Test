@@ -1,8 +1,8 @@
 package resources;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
@@ -17,7 +17,7 @@ public class Base {
   public WebDriver initializeDriver() throws IOException {
     // Create global property file
     prop = new Properties();
-    FileInputStream fis = (FileInputStream) getClass().getClassLoader().getResourceAsStream("data.properties");
+    InputStream fis = getClass().getClassLoader().getResourceAsStream("data.properties");
     prop.load(fis);
     String browserName = prop.getProperty("browser");
     System.out.println(browserName);

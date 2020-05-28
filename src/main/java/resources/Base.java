@@ -12,7 +12,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class Base {
 
   public WebDriver driver;
-  public Properties dataProperties;
+  protected Properties dataProperties;
 
   public WebDriver initializeDriver() throws IOException {
     // Create global property file

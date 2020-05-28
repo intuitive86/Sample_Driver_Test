@@ -21,14 +21,16 @@ public class ProfileCredentials {
   public WebElement getAuthorize() {
     return driver.findElement(authorize);
   }
+
   public WebElement getApiKey() {
     return driver.findElement(apikey);
   }
+
   public WebElement getAuthCred() {
     return driver.findElement(authorizecred);
   }
+
   public WebElement getCloseAuth() {
     return driver.findElement(closeauth);
   }
-}
 }

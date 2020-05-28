@@ -12,14 +12,19 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class Base {
 
   public WebDriver driver;
-  public Properties prop;
+  public Properties dataProperties;
 
   public WebDriver initializeDriver() throws IOException {
     // Create global property file
-    prop = new Properties();
-    InputStream fis = getClass().getClassLoader().getResourceAsStream("data.properties");
-    prop.load(fis);
-    String browserName = prop.getProperty("browser");
+    dataProperties = new Properties();
+    InputStream dataPropertiesInputStream = null;
+    try{
+      InputStream = getClass().getClassLoader().getResourceAsStream("data.properties");
+      dataProperties.load(dataPropertiesInputStream);
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+    String browserName = dataProperties.getProperty("browser");
     System.out.println(browserName);
 
     if (browserName.equals("chrome")) {
